@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Course Website</title>
+<style>
+/* Global Styles */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    scroll-behavior: smooth;
+    background: url('https://shorturl.at/hiJx0') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh; /* Ensure full height of viewport */
+}
+
+
+/* Overlay for readability */
+.section-container {
+    background: rgba(4, 160, 208, 0.9);
+    padding: 60px 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    background-color: rgba(4, 105, 159, 0.9);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+/* Section Styling */
+.section {
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.section:hover {
+    transform: scale(1.02);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea, form select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: rgba(4, 105, 159, 0.9);
+    outline: none;
+}
+
+form button {
+    padding: 12px;
+    background-color:  rgba(4, 105, 159, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #357ab8;
+    transform: translateY(-2px);
+}
+
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(4, 105, 159, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 24px;
+    display: none;
+    transition: background-color 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #357ab8;
+}
+
+/* Footer */
+footer {
+    background-color:  rgba(4, 105, 159, 0.9);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Welcome to Our Online Course Platform</h1>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Home Section -->
+<div id="home" class="section-container">
+    <div class="section">
+        <h2>Home</h2>
+        <p>Welcome to our online course platform! Discover a world of knowledge with expertly designed courses across various fields. Start learning today to reach your potential!</p>
+        <p>Our platform offers courses tailored to enhance your skills in technology, business, arts, and more. Join our community of learners and take the first step towards achieving your career goals.</p>
+    </div>
+</div>
+
+<!-- About Us Section -->
+<div id="about" class="section-container">
+    <div class="section">
+        <h2>About Us</h2>
+        <p>We are committed to helping learners achieve their professional and personal goals through education. With diverse courses in technology, business, arts, and more, we aim to make learning accessible and effective for everyone.</p>
+        <p>Our instructors are experts in their fields, passionate about sharing their knowledge and skills. We provide high-quality courses that are easy to follow, with practical examples and hands-on projects.</p>
+    </div>
+</div>
+
+<!-- Registration Section -->
+<div id="register" class="section-container">
+    <div class="section">
+        <h2>Course Registration</h2>
+        <form onsubmit="return validateForm()" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="course">Select Course:</label>
+            <select id="course" name="course" onchange="showCourseInfo()" required>
+                <option value="">Select a course</option>
+                <option value="web-development">Web Development</option>
+                <option value="data-science">Data Science</option>
+                <option value="cybersecurity">Cybersecurity</option>
+            </select>
+
+            <div id="course-info">
+                <p><strong>Course Information:</strong></p>
+                <p id="course-details">Please select a course to view details.</p>
+            </div>
+
+            <label for="message">Why do you want to take this course?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write a short answer" required></textarea>
+
+            <button type="submit">Register Now</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="section-container">
+    <div class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us. Our team is here to help you!</p>
+        <p>Email: abc123@gmail.com</p>
+        <p>Phone: +91 99999 99999</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Online Course Platform. All Rights Reserved.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+<!-- JavaScript for Form Validation, Course Information, and Scroll-to-Top Button -->
+<script>
+function validateForm() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value;
+
+    if (name === "" || email === "" || course === "" || message === "") {
+        alert("Please fill in all fields.");
+        return false;
+    }
+
+    alert("Registration successful!");
+    return true;
+}
+
+function showCourseInfo() {
+    const courseDetails = document.getElementById("course-details");
+    const course = document.getElementById("course").value;
+
+    if (course === "web-development") {
+        courseDetails.innerText = "Learn to build dynamic and responsive websites using HTML, CSS, JavaScript, and more.";
+    } else if (course === "data-science") {
+        courseDetails.innerText = "Explore data analysis, visualization, and machine learning with Python and popular data tools.";
+    } else if (course === "cybersecurity") {
+        courseDetails.innerText = "Gain skills in protecting systems and networks from digital attacks and threats.";
+    } else {
+        courseDetails.innerText = "Please select a course to view details.";
+    }
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.onscroll = function() {
+    const backToTopButton = document.getElementById("back-to-top");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+</script>
+
+</body>
+</html>
