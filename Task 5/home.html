@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Dumble Fitness Club</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: "Baloo Bhai 2", cursive;
+        background: url(https://i.postimg.cc/KzPQXFm4/Boxing-girl.jpg) no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        flex-wrap: wrap; /* Enables wrapping for small screens */
+      }
+      
+      .left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .left img {
+        width: 80px;
+        filter: invert(100%);
+        margin-right: 10px;
+      }
+      
+      .navbar {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        flex-wrap: wrap; /* Ensures navigation items wrap */
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      
+      .navbar li {
+        font-size: 1rem;
+      }
+      
+      .navbar li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+      }
+      
+      .navbar li a:hover,
+      .navbar li a.active {
+        color: gray;
+      }
+      
+      .btn {
+        font-family: "Baloo Bhai 2", cursive;
+        margin: 0 0.5rem;
+        color: white;
+        background-color: black;
+        padding: 0.5rem 1rem;
+        border: 2px solid rgb(241, 241, 241);
+        border-radius: 10px;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      
+      .btn:hover {
+        background: rgb(73, 73, 73);
+      }
+      
+      .cont {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+      }
+      
+      .formgroup input {
+        font-family: "Baloo Bhai 2", cursive;
+        margin: 0.5rem auto;
+        text-align: center;
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+      }
+      
+      .cont button {
+        display: block;
+        width: 100%;
+        margin: 0.5rem auto;
+        padding: 0.75rem;
+        border: none;
+      }
+      
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        .left img {
+          width: 60px;
+        }
+      
+        .navbar {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      
+        .btn {
+          padding: 0.5rem;
+        }
+      
+        .cont {
+          width: 90%;
+          margin: 1rem auto;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .navbar li {
+          font-size: 0.875rem;
+        }
+      
+        .btn {
+          font-size: 0.75rem;
+          padding: 0.4rem;
+        }
+      
+        .formgroup input {
+          font-size: 0.875rem;
+          padding: 0.6rem;
+        }
+      
+        .cont button {
+          font-size: 0.875rem;
+        }
+      }
+      </style>
+  <header class="head">
+    <div class="left">
+      <img src="https://i.postimg.cc/QdR1bPct/logo2.png" alt="Dumble Fitness Club">
+      <div>Fitness Club</div>
+    </div>
+    <ul class="navbar">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="fitness-calculator.html">Fitness Calculator</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+    <div class="right">
+      <button class="btn" onclick="location.href='call-us.html'">Call Us Now</button>
+      <button class="btn" onclick="location.href='email-us.html'">Email Us</button>
+    </div>
+  </header>
+
+  <div class="cont">
+    <h1>Welcome to Dumble Fitness Club!</h1>
+    <p>Your ultimate destination for fitness, health, and well-being.</p>
+    <p>Join us and embark on your fitness journey today!</p>
+  </div>
+</body>
+</html>
